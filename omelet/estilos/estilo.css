@@ -1,0 +1,56 @@
+body {
+  background-color: bisque;
+  display: flex;
+  justify-content: center;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+#panel {
+  margin: 3%;
+  padding: 30px;
+  background-color: whitesmoke;
+  max-width: 50%;
+  border-radius: 12px;
+  display: block;
+  
+}
+
+img{
+    border-radius: 12px;
+    display: block;
+    width: 100%;
+    box-shadow: 10px 10px 15px black 0,3;
+}
+
+h2{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: rgb(165, 42, 58);
+}
+
+#preparation {
+  padding: 5px;
+  background-color: rgb(251 210 241);
+  border-radius: 12px;
+}
+
+#tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  color: rgb(165, 42, 58);
+}
+
+td, th {
+  padding: 10px;
+  text-align: left;
+}
+
+li{
+  padding: 5px;
+}
+
+tr{
+  border-bottom: 1px solid rgb(179, 173, 173);
+}

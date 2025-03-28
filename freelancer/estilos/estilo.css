@@ -1,0 +1,124 @@
+body{
+    background-color: bisque;
+    text-align: center;
+    padding: 0;
+    margin: 0px;
+
+}
+
+header{
+    background-color: white;
+}
+
+.menu{
+    background-color: green;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: whitesmoke;
+    max-height: 40px;
+}
+
+#titulo{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#panelfoto{
+    background-image: url(/freelancer/media/woman_programmer.png);
+    text-align: center;
+    padding: 50px;
+    color: aliceblue;
+    min-height: 30vh; /* Asegura que ocupe al menos toda la pantalla */
+    background-size: cover; /* Ajusta la imagen al tamaño del contenedor */
+    background-position: center; /* Centra la imagen */
+    display: flex; /* Activar el modelo flexbox */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+
+}
+
+#panel {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 12px;
+    padding: 2%;
+    margin: 10%;
+    background-color: white;
+}
+
+#contacto{
+    padding: 1%;
+    background-color: orange;
+    scale: 200%;
+    color: aliceblue;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 0cap;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+#chincheta{
+    display: flex;
+    justify-content: center;
+}
+
+#panelico1{
+    text-align: center;
+    padding: 2%;
+    display: flex; /* Activar el modelo flexbox */
+    justify-content: space-evenly; /* Espacio entre los elementos */
+    gap: 20px; /* Espacio entre los elementos */
+    align-items: center;
+   
+}
+
+#panelico1 div {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.circuloico {
+    padding: 10%;
+    text-align: center;
+    width: 50px;
+    background-color: rgb(230, 75, 19); /* Color de fondo naranja */
+    border-radius: 50%; /* Hace que el div sea circular */
+
+}
+
+.circuloico img {
+    width: 100%; /* La imagen ocupa todo el tamaño del círculo */
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen se recorte adecuadamente para llenar el círculo */
+}
+
+#panelform {
+    color: aliceblue;
+    background-color: rgb(93, 93, 99);
+}
+
+
+#contenido {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: xx-large;
+    display: flex;
+    flex-direction: column; /* Para alinear el contenido en una columna */
+    justify-content: space-between; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    height: 80%; /* Ajusta el porcentaje de altura que ocupa el contenido dentro del panel */
+    max-height: 100%; /* Asegura que el contenido no se desborde más allá de la altura del contenedor */
+    gap: 50px;
+}
+

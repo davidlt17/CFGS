@@ -13,22 +13,29 @@
             <h1>Paloma Montero.</h1>
             <h4>Web Developer</h4>
             </div>
+           
+
+
             <nav class="menu">
-                <p>Inicio</p>
-                <p>Sobre mi</p>
-                <p>Trabajos</p>
-                <p>Contacto</p>
+                <p><a href="#panelfoto">Inicio</a></p>
+                <p><a href="#panel">Sobre mí</a></p>
+                <p><a href="#panelico1">Trabajos</a></p>
+                <p><a href="#panelform">Contacto</a></p>
             </nav>
+            
+           
     </header>
 
     <section id="panelfoto">
         <div id="contenido">
-        <h2>Diseño y Desarrollo Web</h2>
+            <div id="desarrollotitulo">
+            <h2>Diseño y Desarrollo Web</h2>
+            </div>
         <div id="chincheta">
-        <img src="media/chinche.svg"  alt="" width="50px">
+        <img src="media/keep_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg"  alt="" width="50px">
         <h4>Armilla, Granada</h4>
         </div>
-        <button id="contacto">Contacto</button>
+        <button id="contacto" onclick="location.href='#panelform'">Contacto</button>
         </div>
     </section>
     
@@ -67,25 +74,36 @@
                 </p>
             </div>
         </div>
-    </section>
+    
         <h2>Contacto</h2>
         <section id="panelform">
+            <h2>Contacta con el siguiente formulario</h2>
           
             <section id="formulario">
-                <h3>Contacta con el siguiente formulario</h3>
-                <form action="">
-                    <label for="Nombre">Nombre</label>
-                    <input type="text" id="Nombre" name="Nombre" placeholder="Nombre">
-                    <label for="Telefono">Telefono</label>
-                    <input type="number" id="Telefono" name="Telefono" placeholder="Telefono">
-                    <br>
-                    <label for="Email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="email">
-                    <br>
+                <form action="#">
+                    <div class="campos">
+                        <div>
+                            <label for="Nombre">Nombre</label>
+                            <input type="text" id="Nombre" name="Nombre" placeholder="Nombre">
+                        </div>
+                        <div>
+                            <label for="Telefono">Teléfono</label>
+                            <input type="tel" id="Telefono" name="Telefono" placeholder="Teléfono">
+                        </div>
+                    </div>
+                
+                    <div id="email">
+                        <label for="Email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Email">
+                    </div>
+                
                     <label for="comentarios">Comentarios</label>
-                    <br> 
-                    <textarea name="comentarios" id="comentarios"> </textarea>
+                    <textarea name="comentarios" id="comentarios"></textarea>
+                    <br>
+                    <input type="submit" value="Enviar" id="enviar">
                 </form>
+
+                </section>
             </section>
         </section>
     </section>

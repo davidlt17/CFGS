@@ -1,5 +1,8 @@
+
+
 body{
-    background-color: bisque;
+    background: rgb(242,76,90);
+background: linear-gradient(90deg, rgba(242,76,90,1) 0%, rgba(23,99,166,1) 35%, rgba(237,242,255,1) 97%);
     text-align: center;
     padding: 0;
     margin: 0px;
@@ -7,11 +10,19 @@ body{
 }
 
 header{
-    background-color: white;
+    color: white;
+    background: rgb(242,76,90);
+    background: linear-gradient(90deg, rgba(242,76,90,1) 0%, rgba(23,99,166,1) 35%, rgba(237,242,255,1) 97%);
+}
+
+footer {
+    color: antiquewhite;
 }
 
 .menu{
-    background-color: green;
+    color: white;
+    text-decoration: none;
+    background-color:rgb(61, 61, 65);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -19,6 +30,7 @@ header{
     font-weight: bold;
     color: whitesmoke;
     max-height: 40px;
+    box-shadow: 15px 50px 120px rgba(0, 0, 0, 5); /* Suaviza el borde con sombra */
 }
 
 #titulo{
@@ -30,16 +42,19 @@ header{
 }
 
 #panelfoto{
-    background-image: url(/freelancer/media/woman_programmer.png);
+    background-image: url(/freelancer/media/1947484.webp);
     text-align: center;
     padding: 50px;
     color: aliceblue;
+    text-shadow: 1px 1px 2px black;
     min-height: 30vh; /* Asegura que ocupe al menos toda la pantalla */
     background-size: cover; /* Ajusta la imagen al tamaño del contenedor */
     background-position: center; /* Centra la imagen */
     display: flex; /* Activar el modelo flexbox */
     justify-content: center; /* Centra los elementos horizontalmente */
     align-items: center; /* Centra los elementos verticalmente */
+    box-shadow: 15px 50px 120px rgba(0, 0, 0, 5); /* Suaviza el borde con sombra */
+
 
 }
 
@@ -54,7 +69,7 @@ header{
 
 #contacto{
     padding: 1%;
-    background-color: orange;
+    background-color: rgb(61, 61, 65);
     scale: 200%;
     color: aliceblue;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -73,7 +88,7 @@ header{
 #panelico1{
     text-align: center;
     padding: 2%;
-    display: flex; /* Activar el modelo flexbox */
+    display: flex; 
     justify-content: space-evenly; /* Espacio entre los elementos */
     gap: 20px; /* Espacio entre los elementos */
     align-items: center;
@@ -93,7 +108,7 @@ header{
     padding: 10%;
     text-align: center;
     width: 50px;
-    background-color: rgb(230, 75, 19); /* Color de fondo naranja */
+    background-color: #8976a3; /* Color de fondo naranja */
     border-radius: 50%; /* Hace que el div sea circular */
 
 }
@@ -105,8 +120,18 @@ header{
 }
 
 #panelform {
-    color: aliceblue;
+    color: white;
+    
     background-color: rgb(93, 93, 99);
+    padding: 3%;
+    max-width: 60%;
+    display: inline-block;
+    border-radius: 8px;
+
+}
+
+label{
+    color: white;
 }
 
 
@@ -122,3 +147,121 @@ header{
     gap: 50px;
 }
 
+#formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    
+}
+
+#email {
+
+    text-align: justify;
+   
+}
+
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    max-width: 500px; /* Ancho máximo del formulario */
+    gap: 10px; /* Espacio entre los elementos */
+    
+}
+
+#Nombre,
+#Telefono {
+    width: 100%; /* Para que estén uno al lado del otro */
+}
+
+#email {
+    width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+#comentarios {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    height: 150px; /* Aumenta la altura del cuadro de comentarios */
+    resize: vertical; /* Permite redimensionarlo verticalmente */
+}
+
+.campos {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+}
+
+.campos div {
+    display: flex;
+    flex-direction: column;
+    width: 48%; /* Para que ocupen la mitad del ancho */
+}
+
+div.campos{
+    text-align: left;
+    width: 100%;
+}
+
+#formulario input[type="submit"] {
+    background-color:  #8976a3;
+    color: aliceblue;
+    font-size: 110%;
+    padding: 10px;
+    display: block;
+    margin-left: 0; /* Lo alinea a la izquierda */
+    align-self: flex-start; /* Lo alinea a la izquierda dentro del formulario */
+    border: 0;
+    border-radius: 4px;
+    pointer-events: auto;
+}
+
+.menu a{
+    padding: 1rem;
+    color: white;
+    text-decoration: none;
+}
+
+
+@media (max-width: 447px) {
+    body {
+        overflow-x: hidden; /* Evita desplazamiento horizontal */
+    }
+
+    .menu {
+        flex-direction: column; /* Menú en columna */
+        text-align: center;
+    }
+
+    #contenido {
+        font-size: large; /* Reduce el tamaño del texto */
+        gap: 20px;
+    }
+
+    .campos {
+        flex-direction: column; /* Nombre y teléfono uno debajo del otro */
+    }
+
+    .campos div {
+        width: 100%; /* Que ocupen todo el ancho */
+    }
+
+    #comentarios {
+        height: 120px; /* Ajusta altura del textarea */
+    }
+
+
+    #panelico1 div p {
+        word-wrap: break-word; /* Rompe palabras largas */
+        overflow-wrap: break-word;
+        text-align: justify; /* Justifica el texto */
+        font-size: smaller; /* Reduce el tamaño del texto */
+    }
+
+    #panelico1{
+        display: flex;
+        flex-direction:column;
+    }
+
+    
+}

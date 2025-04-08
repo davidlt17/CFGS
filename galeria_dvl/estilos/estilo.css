@@ -85,7 +85,7 @@ body {
 .header {
     top: 0;
     width: 100%;
-    background-color: #111A26;
+    background-color: #000000;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -109,7 +109,7 @@ body {
 }
 
 .logo span {
-    color: #F2856D;
+    color: #c00;
 }
 
 .nav a {
@@ -121,7 +121,7 @@ body {
 }
 
 .nav a:hover {
-    color: #F2856D;
+    color: #c00;
 }
 
 section.panel {
@@ -218,7 +218,7 @@ section.panel {
     #historia img {
       width: 100%;
       margin-bottom: 1rem;
-      object-fit: cover;
+      object-fit: contain;
     }
   
     #historia .texto {

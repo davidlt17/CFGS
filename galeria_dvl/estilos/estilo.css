@@ -36,15 +36,40 @@
 #historia{
     display: flex;
     justify-content: space-around;
+    padding: 3rem;
+    width: 70%;
+    gap: 5px;
+    
+    margin: 0 auto;
 }
 
 #historia img{
-    width: 60%;
-    object-fit: cover;
+    width: 80%;
+    object-fit: contain;
 }
 
 .texto {
     margin: 1rem; 
+}
+
+#historia .texto{
+        
+        margin: 4rem auto;
+        padding: 2rem;
+        background-color: #f9f9f9; /* tono claro para destacar sin ser muy blanco */
+        color: #222; /* buen contraste, sin llegar al negro puro */
+        font-family: 'Georgia', serif; /* da un toque clásico y narrativo */
+        font-size: 1.125rem; /* un poco más grande para facilitar la lectura */
+        line-height: 1.8;
+        border-left: 4px solid #c00; /* una línea roja sutil, estilo Porsche */
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        border-radius: 8px;
+      }
+
+.historia::first-line {
+font-weight: bold;
+font-size: 1.25rem;
+      
 }
 
 body {
@@ -98,27 +123,6 @@ body {
 .nav a:hover {
     color: #F2856D;
 }
-
-@media (max-width: 768px) {
-    .site-header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem 5%;
-    }
-
-    .nav {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        margin-top: 0.5rem;
-    }
-
-    .nav a {
-        margin: 0;
-    }
-}
-
-
 
 section.panel {
     display: grid;
@@ -200,3 +204,62 @@ section.panel {
     color: #777;
     line-height: 1.4;
 }
+
+
+@media (max-width: 1000px) {
+    #historia {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding: 0;
+      margin: 0 ;
+    }
+  
+    #historia img {
+      width: 100%;
+      margin-bottom: 1rem;
+      object-fit: cover;
+    }
+  
+    #historia .texto {
+      width: 100%;
+      margin: 0 auto;
+      font-size: 1rem;
+      
+    }
+
+    #portada {
+        flex-direction: column;
+        height: auto;
+        padding: 2rem 1rem;
+      }
+    
+      #portada img {
+        width: 100%;
+        height: auto;
+        transform: rotateX(180deg);
+      }
+    
+      #portada p {
+        margin-top: 1.5rem;
+        font-size: 1.5rem;
+        padding: 0 1rem;
+      }
+
+      .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 5%;
+    }
+
+    .nav {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .nav a {
+        margin: 0;
+    }
+  }

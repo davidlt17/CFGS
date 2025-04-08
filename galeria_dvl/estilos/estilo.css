@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-#historia{
+#portada{
     margin: 0 auto;
     padding: 0;
     
@@ -17,7 +17,7 @@
 
 }
 
-#historia img{
+#portada img{
     height: 100vh;
     width: 60%;
     object-fit: cover;
@@ -25,12 +25,22 @@
     transform: rotateX(180deg);
 }
 
-#historia p{
+#portada p{
     font-family:'Times New Roman', Times, serif;
     font-size: 2.5rem;
     color: #ffffff; 
     text-transform: uppercase;
     letter-spacing: 2px;
+}
+
+#historia{
+    display: flex;
+    justify-content: space-around;
+}
+
+#historia img{
+    width: 60%;
+    object-fit: cover;
 }
 
 .texto {

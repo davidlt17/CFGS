@@ -235,9 +235,10 @@ section.panel {
       }
     
       #portada img {
-        width: 100%;
+        width: 90%;
         height: auto;
         transform: rotateX(180deg);
+        transform: rotateZ(90deg);
       }
     
       #portada p {

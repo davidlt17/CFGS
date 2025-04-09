@@ -171,11 +171,12 @@ body {
 /* Panel de secciones */
 section.panel {
     display: grid; /* Usa cuadrícula */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Columnas responsivas */
-    gap: 12px; /* Espacio entre elementos */
-    max-width: 1000px; /* Ancho máximo */
+   
+    gap: 0px; /* Espacio entre elementos */
+    width: 100%; /* Ancho máximo */
+    grid-template-columns: 50% , 50%; /* Columnas responsivas */
     margin: 0 auto; /* Centrado */
-    padding: 1rem; /* Relleno */
+    padding: 0rem; /* Relleno */
     justify-items: center; /* Centra elementos en la cuadrícula */
    
 
@@ -185,8 +186,7 @@ section.panel {
 .card {
     position: relative; /* Para posicionamiento de hijos */
     width: 100%; /* Ancho completo */
-    max-width: 300px; /* Máximo ancho */
-    height: 200px; /* Altura fija */
+    max-height: 60vh;
     
     
     border-radius: 10px; /* Bordes redondeados */
@@ -230,7 +230,7 @@ section.panel {
     height: 100%; /* Altura completa */
     padding: 20px; /* Relleno interno */
     box-sizing: border-box; /* Incluye relleno en dimensiones */
-    background-color: #f2f2f2; /* Fondo gris claro */
+    background-color: rgba(255,255,255, 0.6); /* Fondo gris claro */
     transform: rotateX(-90deg); /* Rota fuera de vista inicialmente */
     transform-origin: bottom; /* Origen de la rotación en la base */
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transición suave */

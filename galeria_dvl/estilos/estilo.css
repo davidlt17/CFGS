@@ -1,266 +1,436 @@
-*{
+/* Establece que todos los elementos usen border-box para calcular dimensiones */
+* {
     box-sizing: border-box;
 }
 
-#portada{
-    margin: 0 auto;
-    padding: 0;
-    
-    display: flex;
-    background: rgb(52,50,50);
-    background: linear-gradient(90deg, rgb(80, 77, 77) 26%, rgba(199,199,199,1) 76%, rgba(198,198,198,1) 97%);
-    height: 100vh;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-
-
-}
-
-#portada img{
-    height: 100vh;
-    width: 60%;
-    object-fit: cover;
-    border-radius: 0px;
-    transform: rotateX(180deg);
-}
-
-#portada p{
-    font-family:'Times New Roman', Times, serif;
-    font-size: 2.5rem;
-    color: #ffffff; 
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-#historia{
-    display: flex;
-    justify-content: space-around;
-    padding: 3rem;
-    width: 70%;
-    gap: 5px;
-    
-    margin: 0 auto;
-}
-
-#historia img{
-    width: 80%;
-    object-fit: contain;
-}
-
-.texto {
-    margin: 1rem; 
-}
-
-#historia .texto{
-        
-        margin: 4rem auto;
-        padding: 2rem;
-        background-color: #f9f9f9; /* tono claro para destacar sin ser muy blanco */
-        color: #222; /* buen contraste, sin llegar al negro puro */
-        font-family: 'Georgia', serif; /* da un toque clásico y narrativo */
-        font-size: 1.125rem; /* un poco más grande para facilitar la lectura */
-        line-height: 1.8;
-        border-left: 4px solid #c00; /* una línea roja sutil, estilo Porsche */
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        border-radius: 8px;
-      }
-
-.historia::first-line {
-font-weight: bold;
-font-size: 1.25rem;
-      
-}
-
+/* Estilos básicos del cuerpo de la página */
 body {
-    margin: 0;
-    width: 100%;
-    text-align: center;
-    min-height: 100vh;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
+    margin: 0; /* Elimina márgenes predeterminados */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    text-align: center; /* Centra el texto */
+    min-height: 100vh; /* Altura mínima de la ventana completa */
+    box-sizing: border-box; /* Incluye bordes y relleno en las dimensiones */
+    font-family: Arial, sans-serif; /* Fuente predeterminada */
+    overflow-x: hidden; /* Evita desbordamiento horizontal */
 }
 
+/* Estilos del encabezado */
 .header {
-    top: 0;
-    width: 100%;
-    background-color: #000000;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
+    width: 100%; /* Ocupa todo el ancho */
+    background-color: #000; /* Fondo negro */
+    color: white; /* Texto blanco */
+    display: flex; /* Usa flexbox para alinear elementos */
+    justify-content: space-between; /* Espacia elementos entre extremos */
+    align-items: center; /* Centra verticalmente */
+    padding: 0.5rem 1rem; /* Relleno interno */
+    font-family: 'Times New Roman', Times, serif; /* Fuente clásica */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra inferior */
+    transition: height 0.3s; /* Transición suave para cambios de altura */
+}
 
-    font-family:'Times New Roman', Times, serif;
-    
-    color: #ffffff; 
-    
-    letter-spacing: 1px;
+/* Estilos del logo */
+.logo {
+    font-size: 1.2rem; /* Tamaño de fuente */
+    color: #fff; /* Color blanco */
+}
+
+/* Estilo del span dentro del logo */
+.logo span {
+    color: #c00; /* Color rojo para destacar */
+}
+
+/* Estilos del ícono de menú hamburguesa */
+.menu-icon {
+    display: flex; /* Usa flexbox */
+    flex-direction: column; /* Organiza barras verticalmente */
+    justify-content: space-between; /* Espacia barras uniformemente */
+    width: 25px; /* Ancho del ícono */
+    height: 20px; /* Altura del ícono */
+    cursor: pointer; /* Cursor de mano al pasar por encima */
+}
+
+/* Estilos de cada barra del menú hamburguesa */
+.bar {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    height: 4px; /* Grosor de la barra */
+    background-color: white; /* Color blanco */
+}
+
+/* Estilos de la navegación */
+.nav {
+    display: none; /* Oculta por defecto en todas las pantallas */
+    position: absolute; /* Posicionamiento absoluto respecto al header */
+    top: 30px; /* Distancia desde la parte superior */
+    left: 0; /* Alineado a la izquierda */
+    right: 0; /* Alineado a la derecha */
+    background-color: #000; /* Fondo negro */
+    flex-direction: column; /* Elementos en columna */
+    align-items: center; /* Centra horizontalmente */
+    gap: 1rem; /* Espacio entre elementos */
+    padding: 10px; /* Relleno interno */
+    transition: transform 0.3s ease-in-out; /* Transición suave para transformaciones */
+}
+
+/* Checkbox oculto para controlar el menú */
+.menu-toggle {
+    display: none; /* No visible en la pantalla */
+}
+
+/* Muestra la navegación cuando el checkbox está marcado */
+.menu-toggle:checked + .menu-icon + .nav {
+    display: flex; /* Muestra la navegación */
+}
+
+/* Estilos de los enlaces de navegación */
+.nav a {
+    margin-left: 0; /* Sin margen izquierdo */
+    color: white; /* Texto blanco */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: 500; /* Grosor de fuente medio */
+    transition: color 0.3s; /* Transición suave para cambio de color */
+}
+
+/* Cambio de color al pasar el ratón */
+.nav a:hover {
+    color: #c00; /* Color rojo */
+}
+
+/* Sección de portada */
+#portada {
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 0; /* Sin relleno */
+    display: flex; /* Usa flexbox */
+    background: rgb(52,50,50); /* Color base de fondo */
+    background: linear-gradient(90deg, rgb(80, 77, 77) 26%, rgba(199,199,199,1) 76%, rgba(198,198,198,1) 97%); /* Gradiente */
+    height: 100vh; /* Altura completa de la ventana */
+    width: 100%; /* Ancho completo */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+/* Imagen de la portada */
+#portada img {
+    height: 100vh; /* Altura completa */
+    width: 60%; /* 60% del ancho */
+    object-fit: cover; /* Cubre el área recortando si es necesario */
+    border-radius: 0px; /* Sin bordes redondeados */
+    transform: rotateX(180deg); /* Rota 180° en eje X */
+}
+
+/* Texto de la portada */
+#portada p {
+    font-family: 'Times New Roman', Times, serif; /* Fuente clásica */
+    font-size: 2.5rem; /* Tamaño grande */
+    color: #ffffff; /* Blanco */
+    text-transform: uppercase; /* Mayúsculas */
+    letter-spacing: 2px; /* Espaciado entre letras */
+}
+
+/* Sección de historia */
+#historia {
+    display: flex; /* Usa flexbox */
+    justify-content: space-around; /* Espacia elementos uniformemente */
+    padding: 3rem; /* Relleno amplio */
+    width: 70%; /* 70% del ancho */
+    gap: 5px; /* Espacio entre elementos */
+    margin: 0 auto; /* Centrado horizontal */
+}
+
+/* Imagen de la sección historia */
+#historia img {
+    width: 80%; /* 80% del ancho del contenedor */
+    object-fit: contain; /* Mantiene proporciones */
+}
+
+/* Clase general para texto */
+.texto {
+    margin: 1rem; /* Margen uniforme */
+}
+
+/* Texto específico de la sección historia */
+#historia .texto {
+    margin: 4rem auto; /* Margen vertical y centrado horizontal */
+    padding: 2rem; /* Relleno interno */
+    background-color: #f9f9f9; /* Fondo claro */
+    color: #222; /* Texto gris oscuro */
+    font-family: 'Georgia', serif; /* Fuente narrativa */
+    font-size: 1.125rem; /* Tamaño legible */
+    line-height: 1.8; /* Altura de línea para legibilidad */
+    border-left: 4px solid #c00; /* Línea roja a la izquierda */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Sombra suave */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+/* Primera línea de la clase historia (aunque parece haber un error en el selector, debería ser #historia) */
+.historia::first-line {
+    font-weight: bold; /* Negrita */
+    font-size: 1.25rem; /* Tamaño mayor */
+}
+
+/* Panel de secciones */
+section.panel {
+    display: grid; /* Usa cuadrícula */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Columnas responsivas */
+    gap: 12px; /* Espacio entre elementos */
+    max-width: 1000px; /* Ancho máximo */
+    margin: 0 auto; /* Centrado */
+    padding: 1rem; /* Relleno */
+    justify-items: center; /* Centra elementos en la cuadrícula */
    
 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-.logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #fff;
-}
-
-.logo span {
-    color: #c00;
-}
-
-.nav a {
-    margin-left: 1.5rem;
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-.nav a:hover {
-    color: #c00;
-}
-
-section.panel {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 12px;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 1rem;
-    justify-items: center;
-}
-
+/* Estilos de las tarjetas */
 .card {
-    position: relative;
-    width: 100%;
-    max-width: 300px;
-    height: 200px;
-    background-color: #f2f2f2;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    perspective: 1000px;
-    box-shadow: 0 0 0 5px #ffffff80;
-    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative; /* Para posicionamiento de hijos */
+    width: 100%; /* Ancho completo */
+    max-width: 300px; /* Máximo ancho */
+    height: 200px; /* Altura fija */
+    
+    
+    border-radius: 10px; /* Bordes redondeados */
+    display: flex; /* Flexbox para centrar contenido */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    overflow: hidden; /* Oculta desbordamiento */
+    perspective: 1000px; /* Perspectiva para efecto 3D */
+    box-shadow: 0 0 0 5px #ffffff80; /* Sombra con transparencia */
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transición suave */
 }
 
+/* Imagen dentro de la tarjeta */
 .card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border-radius: 3px;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Altura completa */
+    object-fit: cover; /* Cubre el área */
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transición suave */
+    border-radius: 3px; /* Bordes ligeramente redondeados */
 }
 
+/* SVG dentro de la tarjeta */
 .card svg {
-    width: 48px;
-    fill: #333;
-    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 48px; /* Tamaño fijo */
+    fill: #333; /* Color gris oscuro */
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transición suave */
 }
 
+/* Efecto al pasar el ratón sobre la tarjeta */
 .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2); /* Sombra más pronunciada */
 }
 
+/* Contenido de la tarjeta (aparece al hacer hover) */
 .card__content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    background-color: #f2f2f2;
-    transform: rotateX(-90deg);
-    transform-origin: bottom;
-    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: absolute; /* Posicionado sobre la imagen */
+    top: 0; /* Alineado arriba */
+    left: 0; /* Alineado izquierda */
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Altura completa */
+    padding: 20px; /* Relleno interno */
+    box-sizing: border-box; /* Incluye relleno en dimensiones */
+    background-color: #f2f2f2; /* Fondo gris claro */
+    transform: rotateX(-90deg); /* Rota fuera de vista inicialmente */
+    transform-origin: bottom; /* Origen de la rotación en la base */
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transición suave */
 }
 
+/* Muestra el contenido al pasar el ratón */
 .card:hover .card__content {
-    transform: rotateX(0deg);
+    transform: rotateX(0deg); /* Rota a posición visible */
 }
 
+/* Título dentro del contenido de la tarjeta */
 .card__title {
-    margin: 0;
-    font-size: 24px;
-    color: #333;
-    font-weight: 700;
+    margin: 0; /* Sin margen */
+    font-size: 24px; /* Tamaño grande */
+    color: #333; /* Gris oscuro */
+    font-weight: 700; /* Negrita */
 }
 
+/* Oculta el SVG al hacer hover */
 .card:hover svg {
-    scale: 0;
+    scale: 0; /* Reduce a tamaño 0 */
 }
 
+/* Descripción dentro del contenido de la tarjeta */
 .card__description {
-    margin: 10px 0 0;
-    font-size: 14px;
-    color: #777;
-    line-height: 1.4;
+    margin: 10px 0 0; /* Margen superior */
+    font-size: 14px; /* Tamaño pequeño */
+    color: #777; /* Gris medio */
+    line-height: 1.4; /* Altura de línea para legibilidad */
+}
+
+/* Pie de página */
+.footer {
+    background-color: #111A26; /* Azul oscuro */
+    color: #fff; /* Texto blanco */
+    padding: 2rem 1rem; /* Relleno */
+    margin-top: 4rem; /* Margen superior */
+    text-align: center; /* Centrado */
+}
+
+/* Contenido del pie de página */
+.footer-content {
+    max-width: 1000px; /* Ancho máximo */
+    margin: 0 auto; /* Centrado */
+}
+
+/* Navegación del pie de página */
+.footer-nav {
+    margin-top: 1rem; /* Margen superior */
+    display: flex; /* Flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    gap: 2rem; /* Espacio entre elementos */
+    flex-wrap: wrap; /* Permite envoltura en pantallas pequeñas */
+}
+
+/* Enlaces del pie de página */
+.footer-nav a {
+    color: #F2856D; /* Color salmón */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: 500; /* Grosor medio */
+    transition: color 0.3s; /* Transición suave */
+}
+
+/* Cambio de color al pasar el ratón */
+.footer-nav a:hover {
+    color: #fff; /* Blanco */
+}
+
+/* Tarjeta de perfil */
+.profile-card {
+    --font-color: #323232; /* Color de fuente */
+    --font-color-sub: #666; /* Color secundario */
+    --bg-color: #fff; /* Fondo blanco */
+    --main-color: #323232; /* Color principal */
+    width: 200px; /* Ancho fijo */
+    height: 254px; /* Altura fija */
+    background: var(--bg-color); /* Fondo */
+    border: 2px solid var(--main-color); /* Borde */
+    box-shadow: 4px 4px var(--main-color); /* Sombra desplazada */
+    border-radius: 5px; /* Bordes redondeados */
+    display: flex; /* Flexbox */
+    flex-direction: column; /* En columna */
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    margin: 0 auto; /* Centrado */
+}
+
+/* Título del perfil */
+.profile-title {
+    text-align: center; /* Centrado */
+    color: var(--font-color); /* Color definido */
+    font-size: 20px; /* Tamaño */
+    font-weight: 400; /* Grosor normal */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Fuentes del sistema */
+}
+
+/* Span dentro del título del perfil */
+.profile-title span {
+    font-size: 15px; /* Tamaño menor */
+    color: var(--font-color-sub); /* Color secundario */
+}
+
+/* Redes sociales del perfil */
+.profile-socials {
+    display: flex; /* Flexbox */
+    height: 0; /* Altura inicial 0 */
+    opacity: 0; /* Invisible inicialmente */
+    margin-top: 20px; /* Margen superior */
+    gap: 20px; /* Espacio entre elementos */
+    transition: 0.5s; /* Transición suave */
+}
+
+/* Botones de redes sociales */
+.profile-socials-btn {
+    width: 25px; /* Ancho */
+    height: 25px; /* Altura */
+    border: none; /* Sin borde */
+    background: transparent; /* Fondo transparente */
+    cursor: pointer; /* Cursor de mano */
+}
+
+/* SVG dentro de los botones */
+.profile-socials-btn svg {
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Altura completa */
+    fill: var(--main-color); /* Color principal */
+}
+
+/* Muestra redes sociales al pasar el ratón */
+.profile-card:hover > .profile-socials {
+    opacity: 1; /* Visible */
+    height: 35px; /* Altura al mostrarse */
+}
+
+/* Efecto al pasar el ratón por los botones */
+.profile-socials-btn:hover {
+    transform: translateY(-5px); /* Se eleva */
+    transition: all 0.15s; /* Transición rápida */
+}
+
+/* Foto del perfil */
+.profile-photo img {
+    border-radius: 100%; /* Circular */
+    width: 100px; /* Ancho fijo */
+}
+
+h1#galeria {
+    font-family:'Times New Roman', Times, serif; /* Usa la fuente que ya importaste */
+    font-size: 2rem;
+    color: #000000;
+    padding: 0.5rem ;
+    margin: 0 auto;
+    width: fit-content;
+    border-radius: 8px;
+    max-width: 90vw; /* Evita que sobrepase el ancho de la pantalla */
+    
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+   
+    
 }
 
 
+/* Media query para pantallas menores a 1000px */
 @media (max-width: 1000px) {
     #historia {
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      padding: 0;
-      margin: 0 ;
+        flex-direction: column; /* Cambia a columna */
+        align-items: center; /* Centra elementos */
+        width: 100%; /* Ancho completo */
+        padding: 0; /* Sin relleno */
+        margin: 0; /* Sin margen */
     }
-  
+
     #historia img {
-      width: 100%;
-      margin-bottom: 1rem;
-      object-fit: contain;
+        width: 100%; /* Ancho completo */
+        margin-bottom: 1rem; /* Margen inferior */
+        object-fit: contain; /* Mantiene proporciones */
     }
-  
+
     #historia .texto {
-      width: 100%;
-      margin: 0 auto;
-      font-size: 1rem;
-      
+        width: 100%; /* Ancho completo */
+        margin: 0 auto; /* Centrado */
+        font-size: 1rem; /* Tamaño reducido */
     }
 
     #portada {
-        flex-direction: column;
-        height: auto;
-        padding: 2rem 1rem;
-      }
-    
-      #portada img {
-        width: 90%;
-        height: auto;
-        transform: rotateX(180deg);
-        transform: rotateZ(90deg);
-      }
-    
-      #portada p {
-        margin-top: 1.5rem;
-        font-size: 1.5rem;
-        padding: 0 1rem;
-      }
-
-      .site-header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem 5%;
+        flex-direction: column; /* Cambia a columna */
+        height: auto; /* Altura automática */
+        padding: 2rem 1rem; /* Relleno ajustado */
     }
 
-    .nav {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        margin-top: 0.5rem;
+    #portada img {
+        width: 90%; /* 90% del ancho */
+        height: auto; /* Altura automática */
+        transform: rotateX(180deg) rotateZ(90deg); /* Rotación combinada */
     }
 
-    .nav a {
-        margin: 0;
+    #portada p {
+        margin-top: 1.5rem; /* Margen superior */
+        font-size: 1.5rem; /* Tamaño reducido */
+        padding: 0 1rem; /* Relleno lateral */
     }
-  }
+}

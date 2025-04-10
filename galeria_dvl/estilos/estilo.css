@@ -413,6 +413,86 @@ h1.galeria {
     text-transform: uppercase;
 }
 
+/* Estilos para el formulario de contacto */
+.contact-form {
+    width: 100%;
+    max-width: 500px; /* Limita el ancho máximo para que no se extienda demasiado */
+    margin: 20px auto; /* Centrado horizontal con margen superior e inferior */
+    padding: 20px; /* Relleno interno */
+    background: #fff; /* Fondo blanco */
+    border: 2px solid #323232; /* Borde oscuro similar a profile-card */
+    box-shadow: 4px 4px #323232; /* Sombra desplazada para coherencia */
+    border-radius: 5px; /* Bordes redondeados suaves */
+    text-align: left; /* Alineación izquierda para etiquetas y campos */
+}
+
+/* Título del formulario */
+.contact-form h2 {
+    font-family: 'Times New Roman', Times, serif; /* Fuente coherente con el resto del sitio */
+    color: #323232; /* Color oscuro */
+    text-align: center; /* Centrado */
+    margin-bottom: 20px; /* Espacio inferior */
+    font-size: 1.5rem; /* Tamaño legible */
+    letter-spacing: 1px; /* Espaciado ligero entre letras */
+}
+
+/* Etiquetas */
+.contact-form label {
+    display: block; /* Cada etiqueta en una nueva línea */
+    margin-bottom: 5px; /* Espacio entre etiqueta y campo */
+    font-family: 'Georgia', serif; /* Fuente narrativa para coherencia con .texto */
+    color: #333; /* Gris oscuro */
+    font-size: 1rem; /* Tamaño estándar */
+}
+
+/* Campos de entrada y área de texto */
+.contact-form input,
+.contact-form textarea {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 10px; /* Relleno interno para comodidad */
+    margin-bottom: 15px; /* Espacio entre campos */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    font-family: Arial, sans-serif; /* Fuente simple y legible */
+    font-size: 1rem; /* Tamaño estándar */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho */
+    transition: border-color 0.3s; /* Transición suave para el borde */
+}
+
+/* Efecto al enfocar los campos */
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #c00; /* Rojo al enfocar, coherente con el tema */
+    outline: none; /* Elimina el contorno predeterminado */
+}
+
+/* Área de texto específica */
+.contact-form textarea {
+    height: 100px; /* Altura inicial */
+    resize: vertical; /* Permite redimensionar solo verticalmente */
+}
+
+/* Botón de envío */
+.contact-form button {
+    display: block; /* Ocupa toda una línea */
+    width: 100%; /* Ancho completo */
+    padding: 12px; /* Relleno para hacerlo más grande */
+    background-color: #c00; /* Rojo, coherente con el tema */
+    color: #fff; /* Texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    font-family: 'Times New Roman', Times, serif; /* Fuente del botón */
+    font-size: 1.1rem; /* Tamaño legible */
+    cursor: pointer; /* Cursor de mano */
+    transition: background-color 0.3s; /* Transición suave para hover */
+}
+
+/* Efecto al pasar el ratón por el botón */
+.contact-form button:hover {
+    background-color: #a00; /* Rojo más oscuro */
+}
+
+
 /* Media query para pantallas menores a 1000px */
 @media (max-width: 1000px) {
     #historia,

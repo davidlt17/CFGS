@@ -37,7 +37,7 @@ body {
 
 /* Estilo del span dentro del logo */
 .logo span {
-    color: #c00; /* Color rojo para destacar */
+    color: rgb(148, 148, 148); /* Color rojo para destacar */
 }
 
 /* Estilos del ícono de menú hamburguesa */
@@ -127,8 +127,18 @@ body {
     letter-spacing: 2px; /* Espaciado entre letras */
 }
 
-/* Sección de historia */
+/* Sección de historia (autos) */
 #historia {
+    display: flex; /* Usa flexbox */
+    justify-content: space-around; /* Espacia elementos uniformemente */
+    padding: 3rem; /* Relleno amplio */
+    width: 70%; /* 70% del ancho */
+    gap: 5px; /* Espacio entre elementos */
+    margin: 0 auto; /* Centrado horizontal */
+}
+
+/* Sección de historia2 (motos) */
+#historia2 {
     display: flex; /* Usa flexbox */
     justify-content: space-around; /* Espacia elementos uniformemente */
     padding: 3rem; /* Relleno amplio */
@@ -139,6 +149,12 @@ body {
 
 /* Imagen de la sección historia */
 #historia img {
+    width: 80%; /* 80% del ancho del contenedor */
+    object-fit: contain; /* Mantiene proporciones */
+}
+
+/* Imagen de la sección historia2 */
+#historia2 img {
     width: 80%; /* 80% del ancho del contenedor */
     object-fit: contain; /* Mantiene proporciones */
 }
@@ -162,6 +178,20 @@ body {
     border-radius: 8px; /* Bordes redondeados */
 }
 
+/* Texto específico de la sección historia2 */
+#historia2 .texto {
+    margin: 4rem auto; /* Margen vertical y centrado horizontal */
+    padding: 2rem; /* Relleno interno */
+    background-color: #f9f9f9; /* Fondo claro */
+    color: #222; /* Texto gris oscuro */
+    font-family: 'Georgia', serif; /* Fuente narrativa */
+    font-size: 1.125rem; /* Tamaño legible */
+    line-height: 1.8; /* Altura de línea para legibilidad */
+    border-left: 4px solid #c00; /* Línea roja a la izquierda */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Sombra suave */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
 /* Primera línea de la clase historia (aunque parece haber un error en el selector, debería ser #historia) */
 .historia::first-line {
     font-weight: bold; /* Negrita */
@@ -171,15 +201,12 @@ body {
 /* Panel de secciones */
 section.panel {
     display: grid; /* Usa cuadrícula */
-   
     gap: 0px; /* Espacio entre elementos */
     width: 100%; /* Ancho máximo */
-    grid-template-columns: 50% , 50%; /* Columnas responsivas */
+    grid-template-columns: 50%, 50%; /* Columnas responsivas */
     margin: 0 auto; /* Centrado */
     padding: 0rem; /* Relleno */
     justify-items: center; /* Centra elementos en la cuadrícula */
-   
-
 }
 
 /* Estilos de las tarjetas */
@@ -187,15 +214,11 @@ section.panel {
     position: relative; /* Para posicionamiento de hijos */
     width: 100%; /* Ancho completo */
     max-height: 60vh;
-    
-    
-    border-radius: 10px; /* Bordes redondeados */
     display: flex; /* Flexbox para centrar contenido */
     align-items: center; /* Centra verticalmente */
     justify-content: center; /* Centra horizontalmente */
     overflow: hidden; /* Oculta desbordamiento */
     perspective: 1000px; /* Perspectiva para efecto 3D */
-    box-shadow: 0 0 0 5px #ffffff80; /* Sombra con transparencia */
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transición suave */
 }
 
@@ -205,28 +228,25 @@ section.panel {
     height: 100%; /* Altura completa */
     object-fit: cover; /* Cubre el área */
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transición suave */
-    border-radius: 3px; /* Bordes ligeramente redondeados */
 }
 
 /* SVG dentro de la tarjeta */
 .card svg {
     width: 48px; /* Tamaño fijo */
-    fill: #333; /* Color gris oscuro */
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transición suave */
 }
 
 /* Efecto al pasar el ratón sobre la tarjeta */
 .card:hover {
     transform: scale(1.05); /* Aumenta ligeramente el tamaño */
-    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2); /* Sombra más pronunciada */
 }
 
 /* Contenido de la tarjeta (aparece al hacer hover) */
 .card__content {
     position: absolute; /* Posicionado sobre la imagen */
     top: 0; /* Alineado arriba */
-    left: 0; /* Alineado izquierda */
-    width: 100%; /* Ancho completo */
+    left: 50px; /* Alineado izquierda */
+    width: 20%; /* Ancho completo */
     height: 100%; /* Altura completa */
     padding: 20px; /* Relleno interno */
     box-sizing: border-box; /* Incluye relleno en dimensiones */
@@ -266,8 +286,8 @@ section.panel {
 .footer {
     background-color: #111A26; /* Azul oscuro */
     color: #fff; /* Texto blanco */
-    padding: 2rem 1rem; /* Relleno */
-    margin-top: 4rem; /* Margen superior */
+    padding: 1rem 1rem; /* Relleno */
+    margin-top: 0rem; /* Margen superior */
     text-align: center; /* Centrado */
 }
 
@@ -374,29 +394,29 @@ section.panel {
 /* Foto del perfil */
 .profile-photo img {
     border-radius: 100%; /* Circular */
-    width: 100px; /* Ancho fijo */
+    width: 100px;
+    object-fit: contain;
 }
 
-h1#galeria {
-    font-family:'Times New Roman', Times, serif; /* Usa la fuente que ya importaste */
+h1.galeria {
+    font-family: 'Times New Roman', Times, serif; /* Usa la fuente que ya importaste */
     font-size: 2rem;
+    text-decoration: underline;
     color: #000000;
-    padding: 0.5rem ;
+    padding: 0.5rem;
     margin: 0 auto;
+    margin-bottom: 2rem;
     width: fit-content;
     border-radius: 8px;
     max-width: 90vw; /* Evita que sobrepase el ancho de la pantalla */
-    
     letter-spacing: 1.5px;
     text-transform: uppercase;
-   
-    
 }
-
 
 /* Media query para pantallas menores a 1000px */
 @media (max-width: 1000px) {
-    #historia {
+    #historia,
+    #historia2 {
         flex-direction: column; /* Cambia a columna */
         align-items: center; /* Centra elementos */
         width: 100%; /* Ancho completo */
@@ -404,13 +424,16 @@ h1#galeria {
         margin: 0; /* Sin margen */
     }
 
-    #historia img {
+    #historia img,
+    #historia2 img {
         width: 100%; /* Ancho completo */
+        height: 70vh;
         margin-bottom: 1rem; /* Margen inferior */
         object-fit: contain; /* Mantiene proporciones */
     }
 
-    #historia .texto {
+    #historia .texto,
+    #historia2 .texto {
         width: 100%; /* Ancho completo */
         margin: 0 auto; /* Centrado */
         font-size: 1rem; /* Tamaño reducido */
@@ -432,5 +455,26 @@ h1#galeria {
         margin-top: 1.5rem; /* Margen superior */
         font-size: 1.5rem; /* Tamaño reducido */
         padding: 0 1rem; /* Relleno lateral */
+    }
+
+    .card__content {
+        position: absolute; /* Posicionado sobre la imagen */
+        top: 0; /* Alineado arriba */
+        left: 0; /* Alineado izquierda */
+        width: 100%; /* Ancho completo */
+        height: 100%; /* Altura completa */
+        padding: 20px; /* Relleno interno */
+        text-align: center;
+        box-sizing: border-box; /* Incluye relleno en dimensiones */
+        background-color: rgba(255,255,255, 0.6); /* Fondo gris claro */
+        transform: rotateX(-90deg); /* Rota fuera de vista inicialmente */
+        transform-origin: bottom; /* Origen de la rotación en la base */
+        transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transición suave */
+    }
+}
+
+@media (max-width: 1600px) {
+    .card__extra {
+        display: none;
     }
 }

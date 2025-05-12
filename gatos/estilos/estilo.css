@@ -1,64 +1,219 @@
 body {
-    background-color: #F9F3F3;
-    padding: 2rem;
-
+  background-color: #c4b0c4;
 }
-  
-  /* From Uiverse.io by vamsidevendrakumar */ 
-  .card-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 
-/* From Uiverse.io by vamsidevendrakumar */ 
-.card {
-    width: 300px;
-    height: 200px;
-    perspective: 1000px;
+img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+figure {
+  width: auto;
+  margin: 0;
+  display: flex;
+  margin-bottom: 10px;
+  break-inside: avoid;
+  position: relative;
+}
+
+/* Forma atual */
+.container {
+  column-count: 3;
+  column-gap: 10px;
+}
+
+
+figure:hover .info-panel {
+  opacity: 1;
+  transform: translateY(0);
+}
+.info-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Fondo translúcido oscuro */
+  color: white;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  opacity: 0; /* Inicialmente invisible */
+  transform: translateY(100%); /* Está por debajo de la imagen */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  border-radius: 4px; /* Si quieres bordes redondeados */
+}
+
+/* Mansory - Nova forma */
+/* .container {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr [box-start] 1fr 1fr [box-end] 1fr;
+  grid-template-rows: masonry;
+} */
+
+label {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 15px 10px 10px;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  color: black;
+ }
+ 
+ input {
+  display: none;
+ }
+ 
+ input:checked + label svg {
+  fill: hsl(0deg 100% 50%);
+  stroke: hsl(0deg 100% 50%);
+  animation: heartButton 1s;
+ }
+ 
+ @keyframes heartButton {
+  0% {
+   transform: scale(1);
   }
-  
-  .card-inner {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.999s;
+ 
+  25% {
+   transform: scale(1.3);
   }
-  
-  .card:hover .card-inner {
-    transform: rotateY(180deg);
+ 
+  50% {
+   transform: scale(1);
   }
-  
-  .card-front,
-  .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
+ 
+  75% {
+   transform: scale(1.3);
   }
-  
-  .card-front {
-    background-color: #6A2C70;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    border: 10px solid #6A2C70;
-    border-radius: 10px;
-    justify-content: center;
-    font-size: 24px;
-    transform: rotateY(0deg);
+ 
+  100% {
+   transform: scale(1);
   }
-  
-  .card-back {
-    background-color: #F08A5D;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    border: 10px solid #F08A5D;
-    border-radius: 10px;
-    justify-content: center;
-    font-size: 24px;
-    transform: rotateY(180deg);
-  }
-  
+ }
+ 
+ input + label .action {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+ }
+ 
+ input + label .action span {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  transition: all .5s;
+ }
+ 
+ input + label .action span.option-1 {
+  transform: translate(0px,0%);
+  opacity: 1;
+ }
+ 
+ input:checked + label .action span.option-1 {
+  transform: translate(0px,-100%);
+  opacity: 0;
+ }
+ 
+ input + label .action span.option-2 {
+  transform: translate(0px,100%);
+  opacity: 0;
+ }
+ 
+ input:checked + label .action span.option-2 {
+  transform: translate(0px,0%);
+  opacity: 1;
+ }
+
+ html{
+  background-color: #e8e8e8;
+   font-family: sans-serif;
+ }
+ #menu{
+     left: 20px;
+     font-size: 4em;
+     font-weight: 800;
+     z-index: 111;
+     cursor: pointer;
+     text-align: center;
+     transition: all 0.5s;
+     -webkit-transition: all 0.25s;
+     position: absolute;
+ }
+ 
+ #menu:hover{
+     transform: rotate(90deg);
+     color: #FF9900;
+ }
+ 
+ ul{
+     list-style: none;
+     padding: 0;
+     margin-top: 75px;
+ }
+ 
+ li{
+     text-align: center;
+     text-transform: uppercase;
+     height: 70px;
+     line-height: 70px;
+     margin: 15px 0;
+     color: white;
+     cursor: pointer;
+     background-color: #00936E;
+     font-size: 1em;
+     letter-spacing: 0.2em;
+     transition: all 0.25s;
+ }
+ 
+ li:hover{
+  background-color: white;
+     color: black;
+     letter-spacing: 0.3em;
+     font-size: 1.5em
+ }
+ 
+ #lgMenu{
+     width: 400px;
+     height: 100%;
+     top: 0;
+     left: -400px;
+     overflow:hidden;
+     background-color: black;
+     box-shadow: 5px 5px 10px grey;
+     position: absolute;
+     z-index: 11;
+     opacity: 0;
+     transition: all 0.25s;
+     -webkit-transition: all 0.25s;
+     
+ }
+ 
+ #exit{
+     position: absolute;
+     right: 10px;
+     padding: 0px;
+     top: -10px;
+     font-size: 4em;
+     color: white;
+     font-weight: 500;
+     cursor: pointer;
+     transition: all 0.25s;
+     -webkit-transition: all 0.25s;
+ }
+ #exit:hover{
+     color:#FF9900;
+ }
+ 
+ #lgMenu.enter{
+     opacity: 1;
+     left: 0;
+ }
+ 

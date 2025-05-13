@@ -1,219 +1,419 @@
+/* Reset básico */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
 body {
-  background-color: #c4b0c4;
+    background-color: #c4b0c4;
 }
 
 img {
-  width: 100%;
-  border-radius: 4px;
+    width: 100%;
+    border-radius: 4px;
 }
 
 figure {
-  width: auto;
-  margin: 0;
-  display: flex;
-  margin-bottom: 10px;
-  break-inside: avoid;
-  position: relative;
+    width: auto;
+    margin: 0;
+    display: flex;
+    margin-bottom: 10px;
+    break-inside: avoid;
+    position: relative;
 }
 
-/* Forma atual */
-.container {
-  column-count: 3;
-  column-gap: 10px;
+/* Mostrar info-panel solo al hacer hover sobre la imagen o el figure */
+figure:hover .info-panel,
+figure:focus-within .info-panel {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
-
-figure:hover .info-panel {
-  opacity: 1;
-  transform: translateY(0);
-}
 .info-panel {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Fondo translúcido oscuro */
-  color: white;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 18px;
-  opacity: 0; /* Inicialmente invisible */
-  transform: translateY(100%); /* Está por debajo de la imagen */
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  border-radius: 4px; /* Si quieres bordes redondeados */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 18px;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    border-radius: 4px;
+    pointer-events: none; /* No permite interacción cuando está invisible */
 }
 
-/* Mansory - Nova forma */
-/* .container {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: 1fr [box-start] 1fr 1fr [box-end] 1fr;
-  grid-template-rows: masonry;
-} */
+/* Galería tipo columnas */
+.container {
+    column-count: 5;
+    column-gap: 10px;
+    width: 80%;
+    margin: 0 auto;
+}
 
+/* Responsive columns for .container */
+@media (max-width: 1200px) {
+    .container {
+        column-count: 4;
+    }
+}
+@media (max-width: 900px) {
+    .container {
+        column-count: 3;
+    }
+}
+@media (max-width: 700px) {
+    .container {
+        column-count: 2;
+    }
+}
+@media (max-width: 500px) {
+    .container {
+        column-count: 1;
+    }
+}
+
+/* Favoritos */
 label {
-  background-color: white;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 10px 15px 10px 10px;
-  cursor: pointer;
-  user-select: none;
-  border-radius: 10px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  color: black;
- }
- 
- input {
-  display: none;
- }
- 
- input:checked + label svg {
-  fill: hsl(0deg 100% 50%);
-  stroke: hsl(0deg 100% 50%);
-  animation: heartButton 1s;
- }
- 
- @keyframes heartButton {
-  0% {
-   transform: scale(1);
-  }
- 
-  25% {
-   transform: scale(1.3);
-  }
- 
-  50% {
-   transform: scale(1);
-  }
- 
-  75% {
-   transform: scale(1.3);
-  }
- 
-  100% {
-   transform: scale(1);
-  }
- }
- 
- input + label .action {
-  position: relative;
-  overflow: hidden;
-  display: grid;
- }
- 
- input + label .action span {
-  grid-column-start: 1;
-  grid-column-end: 1;
-  grid-row-start: 1;
-  grid-row-end: 1;
-  transition: all .5s;
- }
- 
- input + label .action span.option-1 {
-  transform: translate(0px,0%);
-  opacity: 1;
- }
- 
- input:checked + label .action span.option-1 {
-  transform: translate(0px,-100%);
-  opacity: 0;
- }
- 
- input + label .action span.option-2 {
-  transform: translate(0px,100%);
-  opacity: 0;
- }
- 
- input:checked + label .action span.option-2 {
-  transform: translate(0px,0%);
-  opacity: 1;
- }
+    background-color: white;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 15px 10px 10px;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    color: black;
+}
 
- html{
-  background-color: #e8e8e8;
-   font-family: sans-serif;
- }
- #menu{
-     left: 20px;
-     font-size: 4em;
-     font-weight: 800;
-     z-index: 111;
-     cursor: pointer;
-     text-align: center;
-     transition: all 0.5s;
-     -webkit-transition: all 0.25s;
-     position: absolute;
- }
- 
- #menu:hover{
-     transform: rotate(90deg);
-     color: #FF9900;
- }
- 
- ul{
-     list-style: none;
-     padding: 0;
-     margin-top: 75px;
- }
- 
- li{
-     text-align: center;
-     text-transform: uppercase;
-     height: 70px;
-     line-height: 70px;
-     margin: 15px 0;
-     color: white;
-     cursor: pointer;
-     background-color: #00936E;
-     font-size: 1em;
-     letter-spacing: 0.2em;
-     transition: all 0.25s;
- }
- 
- li:hover{
-  background-color: white;
-     color: black;
-     letter-spacing: 0.3em;
-     font-size: 1.5em
- }
- 
- #lgMenu{
-     width: 400px;
-     height: 100%;
-     top: 0;
-     left: -400px;
-     overflow:hidden;
-     background-color: black;
-     box-shadow: 5px 5px 10px grey;
-     position: absolute;
-     z-index: 11;
-     opacity: 0;
-     transition: all 0.25s;
-     -webkit-transition: all 0.25s;
-     
- }
- 
- #exit{
-     position: absolute;
-     right: 10px;
-     padding: 0px;
-     top: -10px;
-     font-size: 4em;
-     color: white;
-     font-weight: 500;
-     cursor: pointer;
-     transition: all 0.25s;
-     -webkit-transition: all 0.25s;
- }
- #exit:hover{
-     color:#FF9900;
- }
- 
- #lgMenu.enter{
-     opacity: 1;
-     left: 0;
- }
- 
+input {
+    display: none;
+}
+
+input:checked + label svg {
+    fill: hsl(0deg 100% 50%);
+    stroke: hsl(0deg 100% 50%);
+    animation: heartButton 1s;
+}
+
+@keyframes heartButton {
+    0% { transform: scale(1);}
+    25% { transform: scale(1.3);}
+    50% { transform: scale(1);}
+    75% { transform: scale(1.3);}
+    100% { transform: scale(1);}
+}
+
+input + label .action {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+}
+
+input + label .action span {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    transition: all .5s;
+}
+
+input + label .action span.option-1 {
+    transform: translate(0px,0%);
+    opacity: 1;
+}
+
+input:checked + label .action span.option-1 {
+    transform: translate(0px,-100%);
+    opacity: 0;
+}
+
+input + label .action span.option-2 {
+    transform: translate(0px,100%);
+    opacity: 0;
+}
+
+input:checked + label .action span.option-2 {
+    transform: translate(0px,0%);
+    opacity: 1;
+}
+
+/* Tabs */
+.tab-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;         /* Centrado vertical */
+    justify-content: center;     /* Centrado horizontal */
+    flex-wrap: wrap;
+    gap: 16px; /* Más espacio entre tabs */
+    width: 100%;
+    padding: 8px;
+    border-radius: 9px;
+    box-sizing: border-box;
+    text-align: center; /* Centra el contenido dentro del contenedor */
+    height: 100%;
+}
+
+.tab {
+    width: 25%;
+    height: 28px;
+    position: absolute;
+    z-index: 99;
+    outline: none;
+    opacity: 0;
+}
+
+.tab_label {
+    width: 150px;         /* Más ancho */
+    min-width: 100px;
+    height: 38px;         /* Más alto */
+    position: relative;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    font-size: 1rem;      /* Más grande */
+    opacity: 0.7;
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 0 12px;
+    border-radius: 8px;
+    background: #f5f5f5;
+    transition: background 0.2s, opacity 0.2s;
+}
+
+.tab_label:hover,
+.tab_label:focus {
+    background: #e0e0e0;
+    opacity: 1;
+}
+
+/* Responsive: reduce tamaño en pantallas pequeñas */
+@media (max-width: 700px) {
+    .tab_label {
+        width: 110px;
+        min-width: 80px;
+        height: 32px;
+        font-size: 0.85rem;
+        padding: 0 6px;
+    }
+    .tab-container {
+        gap: 8px;
+        padding: 6px 2px;
+    }
+}
+@media (max-width: 500px) {
+    .tab_label {
+        width: 90px;
+        min-width: 60px;
+        height: 28px;
+        font-size: 0.75rem;
+        padding: 0 2px;
+    }
+    .tab-container {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        height: auto;
+        gap: 8px;
+        padding: 4px 1px;
+    }
+}
+
+.tab--1:checked ~ .indicator {
+    left: 2px;
+}
+.tab--2:checked ~ .indicator {
+    left: calc(130px + 2px);
+}
+.tab--3:checked ~ .indicator {
+    left: calc(130px * 2 + 2px);
+}
+
+/* Tamaño base del logo */
+.tab-container img {
+    width: 160px;
+    max-width: 32vw;
+    min-width: 60px;
+    transition: width 0.3s;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* A medida que la pantalla disminuye, el logo ocupa más porcentaje del ancho */
+@media (max-width: 1200px) {
+    .tab-container img {
+        width: 180px;
+        max-width: 38vw;
+        min-width: 80px;
+    }
+}
+@media (max-width: 900px) {
+    .tab-container img {
+        width: 100px;
+        max-width: 44vw;
+        min-width: 100px;
+    }
+}
+@media (max-width: 700px) {
+    .tab-container img {
+        width: 120px;
+        max-width: 20vw;
+    }
+}
+@media (max-width: 500px) {
+    .tab-container img {
+        width: 170px;
+        max-width: 80vw;
+        min-width: 140px;
+    }
+}
+
+/* Centra el #menu si lo usas */
+#menu {
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Header responsive: más fino en pantallas grandes, más alto en pequeñas */
+header {
+    position: fixed;
+    z-index: 100;
+    background-color: aliceblue;
+    width: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    padding: 1rem 0;
+    height: 56px; /* Más pequeño */
+    transition: height 0.3s, padding 0.3s;
+}
+
+/* Ajusta el padding-top del contenedor para que no se solape el header y deja margen */
+#containerpadre {
+    padding-top: 90px; /* Un poco mayor que el header */
+    transition: padding-top 0.3s;
+}
+
+/* Pantallas muy grandes: header más fino */
+@media (min-width: 1400px) {
+    header {
+        height: 48px;
+        padding: 0.7rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .tab-container {
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        gap: 16px;
+    }
+    #containerpadre {
+        padding-top: 80px;
+    }
+    .tab-container img {
+        width: 140px;
+        max-width: 10vw;
+        min-width: 40px;
+    }
+}
+
+/* Más padding-top entre 1200px y 1400px */
+@media (min-width: 1201px) and (max-width: 1399px) {
+    #containerpadre {
+        padding-top: 130px;
+    }
+}
+
+/* Escritorio estándar */
+@media (max-width: 1200px) {
+    header {
+        height: 64px;
+        padding: 1.2rem 0;
+    }
+    #containerpadre {
+        padding-top: 140px; /* Aumentado el padding-top */
+    }
+}
+
+/* Tablets y portátiles pequeños */
+@media (max-width: 900px) {
+    header {
+        height: 72px;
+        padding: 1.5rem 0;
+    }
+    #containerpadre {
+        padding-top: 140px;
+    }
+}
+
+/* Tablets pequeñas */
+@media (max-width: 700px) {
+    header {
+        height: 84px;
+        padding: 1.8rem 0;
+    }
+    #containerpadre {
+        padding-top: 160px;
+    }
+}
+
+/* Móviles */
+@media (max-width: 500px) {
+    header {
+        height: 96px;
+        padding: 2.2rem 0;
+    }
+    #containerpadre {
+        padding-top: 180px;
+    }
+}
+
+.loaderon {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.85); /* Fondo blanco semitransparente */
+    z-index: 9999;
+}
+
+.loaderoff {
+    margin: 0 auto;
+    display: none;
+}
+
+#loader.loaderon {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(255,255,255,0.85) !important;
+    z-index: 9999 !important;
+}
+

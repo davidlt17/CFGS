@@ -21,6 +21,54 @@ document.querySelector('label[for="tab2"]').addEventListener('click', function (
     location.reload();
 });
 
+// Botón Favs: muestra favoritos y añade clase al fav-container
+document.querySelector('label[for="tab1"]').addEventListener('click', function () {
+    // Selecciona el contenedor de favoritos
+    const favContainer = document.getElementById('fav-container');
+    favContainer.innerHTML = ''; // Limpia el contenido anterior
+
+    // Añade la clase mostrafav y quita hidden
+    favContainer.classList.remove('hidden');
+    favContainer.classList.add('mostrarfav');
+
+    // Crea el header del panel con el botón cerrar
+    const panelHeader = document.createElement('header');
+    panelHeader.className = 'panel-header';
+
+    const title = document.createElement('h2');
+    title.textContent = 'Tus Favoritos';
+
+    const closeBtn = document.createElement('button');
+    closeBtn.id = 'close-fav';
+    closeBtn.textContent = 'Cerrar Favoritos';
+
+    panelHeader.appendChild(title);
+    panelHeader.appendChild(closeBtn);
+    favContainer.appendChild(panelHeader);
+
+    // Añade las fotos directamente al favContainer
+    if (favoritos.length === 0) {
+        const mensaje = document.createElement('p');
+        mensaje.textContent = 'No tienes favoritos aún.';
+        favContainer.appendChild(mensaje);
+    } else {
+        favoritos.forEach(id => {
+            const figure = document.createElement('figure');
+            figure.innerHTML = `
+                <img src="https://cdn2.thecatapi.com/images/${id}.jpg" alt="Gato favorito" style="width:150px;max-width:100%;border-radius:8px;">
+            `;
+            favContainer.appendChild(figure);
+        });
+    }
+
+    // Hacer que el botón cerrar oculte el panel
+    closeBtn.addEventListener('click', function () {
+        favContainer.classList.remove('mostrarfav');
+        favContainer.classList.add('hidden');
+        favContainer.innerHTML = '';
+    });
+});
+
 // Modifica la función para mostrar el contenido solo cuando todo esté cargado
 async function obtenerGato() {
     try {

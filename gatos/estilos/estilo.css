@@ -386,6 +386,10 @@ header {
     #containerpadre {
         padding-top: 180px;
     }
+    #menu {
+        text-align: center;
+        margin: 0 auto;
+    }
 }
 
 .loaderon {
@@ -417,3 +421,110 @@ header {
     z-index: 9999 !important;
 }
 
+.hidden {
+    display: none;
+}
+
+.mostrarfav {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    max-width: 900px;
+    background-color: rgba(0, 0, 0, 0.92);
+    z-index: 1000;
+    overflow: auto;
+    column-count: 5;
+    column-gap: 10px;
+    border-radius: 18px;
+    padding: 32px 24px;
+    padding-top: 4rem;
+
+    margin: 0;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+.mostrarfav {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    max-width: 900px;
+    max-height: 80vh;
+    background-color: rgba(0, 0, 0, 0.92);
+    z-index: 1000;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    border-radius: 18px;
+    padding: 32px 24px 24px 24px;
+    padding-top: 4rem;
+    margin: 0;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    grid-auto-flow: dense;
+}
+
+/* Responsive: menos columnas en pantallas pequeñas */
+@media (max-width: 1200px) {
+    .mostrarfav {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media (max-width: 900px) {
+    .mostrarfav {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width: 700px) {
+    .mostrarfav {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 500px) {
+    .mostrarfav {
+        grid-template-columns: repeat(2, 1fr);
+
+        padding: 16px 4vw 8px 4vw;
+        padding-top: 4rem;
+    }
+}
+
+/* Las imágenes mantienen su proporción */
+.mostrarfav figure {
+    margin: 0;
+    width: 100%;
+    break-inside: avoid;
+    display: block;
+}
+
+.mostrarfav img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+
+
+
+#close-fav {
+    
+    background-color:#c4b0c4;
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-top: 1rem;
+    border-radius: 18px;
+    width: 20%;
+}
+
+.panel-header{
+    display: flex;
+    background-color: aqua;
+}

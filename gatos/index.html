@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos/estilo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
     <title>Web De Gatos</title>
 </head>
 <body>
@@ -19,7 +21,9 @@
             <label class="tab_label" for="tab2">Ver Más 🔄️</label>
 
             <input type="radio" name="tab" id="tab3" class="tab tab--3" />
-            <label class="tab_label" for="tab3">+ Info</label>
+            <label class="tab_label" for="tab3">
+                <a href="#info-proyecto" style="color: inherit; text-decoration: none;">+ Info</a>
+            </label>
             </div>
         </div>
     </header>
@@ -67,9 +71,68 @@
             </g></svg>
     </div>
 
-    <div id="fav-container" class="hidden">
+    <div id="fav-container" class="hidden"></div>
+
+    <div id="info-proyecto">
+        <h3>Sobre este proyecto</h3>
+        <p>
+            Esta web ha sido creada para los amantes de los gatos y para quienes disfrutan descubriendo nuevas imágenes adorables cada día.<br>
+            Al hacer clic en <strong>
+                <a href="#info-proyecto" id="enlace-info-proyecto" style="color:#fdd032; text-decoration:underline; cursor:pointer;">Ver Más 🔄️</a>
+            </strong>
+            puedes recargar la galería y ver 15 gatos nuevos, todos obtenidos aleatoriamente desde una API especializada.<br>
+            Si alguna imagen te gusta especialmente, puedes marcarla como favorita y guardarla en tu panel personal de favoritos. Así, podrás volver a ver tus gatos preferidos siempre que quieras.
+        </p>
+        <p>
+            El objetivo de este proyecto es ofrecerte una experiencia divertida, sencilla y visualmente atractiva, donde puedas relajarte y disfrutar de la ternura felina.<br>
+            No dudes en compartir tus favoritos con amigos o familiares, y recuerda: cada vez que pulses <strong>"Ver Más"</strong>, la aventura gatuna vuelve a empezar.<br>
+            <br>
+            ¡Gracias por visitar y que disfrutes mucho de la web!
+        </p>
+    </div>
+
+    <div id="info-desarrollador" style="margin: 2rem auto 3rem auto; max-width: 700px; background: rgba(255,255,255,0.95); border-radius: 18px; box-shadow: 0 4px 24px rgba(196,176,196,0.10); padding: 2rem 2rem 1.5rem 2rem; color: #444; font-family: 'Poppins', 'Quicksand', Arial, sans-serif; text-align: center;">
+        <h3>Sobre el desarrollador</h3>
+        <p>
+            Este proyecto ha sido desarrollado por <strong>David Lara</strong>, un apasionado de la programación y el diseño web.<br>
+            La idea surgió como un ejercicio personal para practicar mis habilidades en JavaScript y HTML, y para crear algo divertido y útil al mismo tiempo.<br>
+            Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto conmigo a través de mis redes sociales o mi correo electrónico.
+        </p>
+        
+        <!-- Redes sociales -->
+        <div class="cardSocial">
+            <!-- GitHub -->
+            <a href="https://github.com/tu-usuario" class="socialContainer containerOne" target="_blank">
+                <svg class="socialSvg githubSvg" viewBox="0 0 16 16">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+
+            <!-- Correo Electrónico -->
+            <a href="mailto:tu-correo@ejemplo.com" class="socialContainer containerTwo">
+                <svg class="socialSvg emailSvg" viewBox="0 0 16 16">
+                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-.5a.5.5 0 0 0-.5.5v.217l6.5 4.2 6.5-4.2V4a.5.5 0 0 0-.5-.5H2zm13 1.383-4.964 3.21L15 11.383V4.883zM1 4.883v6.5l4.964-3.21L1 4.883zM1.803 12h12.394L8 7.8 1.803 12z"></path>
+                </svg>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="#" class="socialContainer containerThree">
+                <svg class="socialSvg linkdinSvg" viewBox="0 0 448 512">
+                    <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path>
+                </svg>
+            </a>
+
+            <!-- WhatsApp -->
+            <a href="#" class="socialContainer containerFour">
+                <svg class="socialSvg whatsappSvg" viewBox="0 0 16 16">
+                    <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"></path>
+                </svg>
+            </a>
+        </div>
+
     </div>
 
     <script src="script.js"></script>
+    
 </body>
 </html>

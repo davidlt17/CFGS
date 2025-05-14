@@ -1,6 +1,6 @@
 const api_key = 'live_bIaJOZV9q1jRP485pQ1zUe2BEqj1WbV1IImKXJlQVK22UjS5Yq0MCYqHU7aoLoy8';
 let contador = 0;
-let favoritos = JSON.parse(localStorage.getItem('favoritos')) || []; // Cargar favoritos desde el Local Storage
+let favoritos = JSON.parse(localStorage.getItem('favoritos')) || []; // Ahora guarda un array de URLs
 
 const TOTAL_GATOS = 15;
 let gatosCargados = 0;
@@ -23,15 +23,13 @@ document.querySelector('label[for="tab2"]').addEventListener('click', function (
 
 // Botón Favs: muestra favoritos y añade clase al fav-container
 document.querySelector('label[for="tab1"]').addEventListener('click', function () {
-    // Selecciona el contenedor de favoritos
     const favContainer = document.getElementById('fav-container');
-    favContainer.innerHTML = ''; // Limpia el contenido anterior
+    favContainer.innerHTML = '';
 
-    // Añade la clase mostrafav y quita hidden
     favContainer.classList.remove('hidden');
     favContainer.classList.add('mostrarfav');
 
-    // Crea el header del panel con el botón cerrar
+    // Header fijo arriba
     const panelHeader = document.createElement('header');
     panelHeader.className = 'panel-header';
 
@@ -40,28 +38,31 @@ document.querySelector('label[for="tab1"]').addEventListener('click', function (
 
     const closeBtn = document.createElement('button');
     closeBtn.id = 'close-fav';
-    closeBtn.textContent = 'Cerrar Favoritos';
+    closeBtn.textContent = 'Cerrar';
 
     panelHeader.appendChild(title);
     panelHeader.appendChild(closeBtn);
     favContainer.appendChild(panelHeader);
 
-    // Añade las fotos directamente al favContainer
+    // Contenedor solo para las fotos
+    const favsList = document.createElement('div');
+    favsList.className = 'favs-list';
+
     if (favoritos.length === 0) {
         const mensaje = document.createElement('p');
         mensaje.textContent = 'No tienes favoritos aún.';
-        favContainer.appendChild(mensaje);
+        favsList.appendChild(mensaje);
     } else {
-        favoritos.forEach(id => {
+        favoritos.forEach(url => {
             const figure = document.createElement('figure');
             figure.innerHTML = `
-                <img src="https://cdn2.thecatapi.com/images/${id}.jpg" alt="Gato favorito" style="width:150px;max-width:100%;border-radius:8px;">
+                <img src="${url}" alt="Gato favorito" style="width:150px;max-width:100%;border-radius:8px;">
             `;
-            favContainer.appendChild(figure);
+            favsList.appendChild(figure);
         });
     }
+    favContainer.appendChild(favsList);
 
-    // Hacer que el botón cerrar oculte el panel
     closeBtn.addEventListener('click', function () {
         favContainer.classList.remove('mostrarfav');
         favContainer.classList.add('hidden');
@@ -103,21 +104,17 @@ async function obtenerGato() {
 
         // Añadir evento al checkbox
         const checkbox = figure.querySelector(`#favorite-${contador}`);
-        checkbox.checked = favoritos.includes(gato.id); // Marcar el checkbox si el ID está en favoritos
+        checkbox.checked = favoritos.includes(gato.url); // Ahora compara por URL
 
         checkbox.addEventListener('click', function () {
             if (checkbox.checked) {
-                // Añadir el ID a la lista de favoritos
-                favoritos.push(gato.id);
-                console.log(`Añadido a favoritos: ${gato.id}`);
+                // Añadir la URL a la lista de favoritos
+                favoritos.push(gato.url);
             } else {
-                // Eliminar el ID de la lista de favoritos
-                favoritos = favoritos.filter(id => id !== gato.id);
-                console.log(`Eliminado de favoritos: ${gato.id}`);
+                // Eliminar la URL de la lista de favoritos
+                favoritos = favoritos.filter(url => url !== gato.url);
             }
-            // Guardar los favoritos en el Local Storage
             localStorage.setItem('favoritos', JSON.stringify(favoritos));
-            console.log('Lista de favoritos:', favoritos);
         });
 
         // Esperar a que la imagen cargue o falle

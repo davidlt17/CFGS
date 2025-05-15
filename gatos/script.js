@@ -38,7 +38,13 @@ document.querySelector('label[for="tab1"]').addEventListener('click', function (
 
     const closeBtn = document.createElement('button');
     closeBtn.id = 'close-fav';
-    closeBtn.textContent = 'Cerrar';
+    // SVG de una X (cerrar)
+    closeBtn.innerHTML = `
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c4b0c4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+    `;
 
     panelHeader.appendChild(title);
     panelHeader.appendChild(closeBtn);

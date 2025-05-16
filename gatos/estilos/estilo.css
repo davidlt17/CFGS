@@ -180,7 +180,7 @@ input:checked + label .action span.option-2 {
 }
 @media (max-width: 500px) {
     .tab_label {
-        width: 90px; min-width: 60px; height: 28px; font-size: 0.75rem; padding: 0 2px;
+        width: 80px; min-width: 50px; height: 28px; font-size: 0.75rem; padding: 0 2px;
     }
     .tab-container {
         flex-direction: column;
@@ -249,7 +249,7 @@ header {
 @media (max-width: 1200px) { header { height: 64px; padding: 1.2rem 0; } #containerpadre { padding-top: 140px; } }
 @media (max-width: 900px)  { header { height: 72px; padding: 1.5rem 0; } #containerpadre { padding-top: 140px; } }
 @media (max-width: 700px)  { header { height: 84px; padding: 1.8rem 0; } #containerpadre { padding-top: 160px; } }
-@media (max-width: 500px)  { header { height: 80px; padding: 2rem 0; padding-top: 0%; } #containerpadre { padding-top: 130px; } #menu { text-align: center; margin: 0 auto; } }
+@media (max-width: 500px)  { header { height: 80px; padding: 2rem 0; padding-top: 0%; } #containerpadre { padding-top: 130px; } #menu { text-align: center; margin: 0 auto ; justify-content: space-between; width: 90%;;} }
 
 .loaderon, #loader.loaderon {
     position: fixed !important;

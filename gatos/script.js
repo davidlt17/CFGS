@@ -1,9 +1,13 @@
 const api_key = 'live_bIaJOZV9q1jRP485pQ1zUe2BEqj1WbV1IImKXJlQVK22UjS5Yq0MCYqHU7aoLoy8';
+const api_key2 = 'live_Yjn3TXB20AZ1e7f7fLgN19yJQRXpkMWrFUyeEiSrdQnYmhXPtDn94Ghknv4F5FuX';
 let contador = 0;
 let favoritos = JSON.parse(localStorage.getItem('favoritos')) || []; // Ahora guarda un array de URLs
 
 const TOTAL_GATOS = 15;
+const TOTAL_PERROS = 15;
 let gatosCargados = 0;
+let perrosCargados = 0;
+let contadorPerros = 0;
 
 // Crear un único contenedor y OCULTARLO hasta que todo cargue
 const container = document.createElement('div');
@@ -142,6 +146,89 @@ async function obtenerGato() {
             loader.classList.remove('loaderon');
             loader.classList.add('loaderoff');
             container.style.display = ''; // Mostrar el contenido
+        }
+    }
+}
+
+// Mostrar perros al pulsar el tab4 y mostrar loader mientras carga
+document.querySelector('label[for="tab4"]').addEventListener('click', function () {
+    // Mostrar el loader
+    const loader = document.querySelector('.loader-perro');
+    loader.classList.remove('loaderoff'); // Muestra el loader
+
+    // Borra el contenido antes de cargar perros
+    container.innerHTML = "";
+    perrosCargados = 0;
+    contadorPerros = 0;
+
+    // Ejecuta el bucle para cargar 15 perros
+    for (let i = 0; i < TOTAL_PERROS; i++) {
+        obtenerPerro();
+    }
+});
+
+// Modifica obtenerPerro para ocultar las fotos de perros hasta que todas estén cargadas
+async function obtenerPerro() {
+    try {
+        const response = await fetch('https://api.thedogapi.com/v1/images/search', {
+            headers: { 'x-api-key': api_key2 }
+        });
+        const data = await response.json();
+        const perro = data[0];
+
+        contadorPerros++; // Usar contador independiente
+
+        const figure = document.createElement('figure');
+        figure.style.display = 'none'; // Oculta la figura hasta que todas estén cargadas
+        figure.innerHTML = `
+            <img src="${perro.url}" alt="Perro" />
+            <div class="info-panel">
+                <input type="checkbox" id="favorite-perro-${contadorPerros}" name="favorite-checkbox" value="${perro.id}">
+                <label for="favorite-perro-${contadorPerros}" class="container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                <div class="action">
+                    <span class="option-1">Add to Favorites</span>
+                    <span class="option-2">Added to Favorites</span>
+                </div>
+                </label>
+            </div>
+        `;
+
+        container.appendChild(figure);
+
+        const checkbox = figure.querySelector(`#favorite-perro-${contadorPerros}`);
+        checkbox.checked = favoritos.includes(perro.url);
+
+        checkbox.addEventListener('click', function () {
+            if (checkbox.checked) {
+                favoritos.push(perro.url);
+            } else {
+                favoritos = favoritos.filter(url => url !== perro.url);
+            }
+            localStorage.setItem('favoritos', JSON.stringify(favoritos));
+        });
+
+        const img = figure.querySelector('img');
+        img.onload = img.onerror = function () {
+            perrosCargados++;
+            if (perrosCargados === TOTAL_PERROS) {
+                // Mostrar todas las figuras de perros cuando todas hayan cargado
+                const figuras = container.querySelectorAll('figure');
+                figuras.forEach(f => f.style.display = '');
+                const loader = document.querySelector('.loader-perro');
+                loader.classList.add('loaderoff'); // Oculta el loader
+                container.style.display = '';
+            }
+        };
+    } catch (error) {
+        console.error('Error al obtener el perro:', error);
+        perrosCargados++;
+        if (perrosCargados === TOTAL_PERROS) {
+            const figuras = container.querySelectorAll('figure');
+            figuras.forEach(f => f.style.display = '');
+            const loader = document.querySelector('.loader-perro');
+            loader.classList.add('loaderoff'); // Oculta el loader
+            container.style.display = '';
         }
     }
 }

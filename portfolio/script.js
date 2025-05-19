@@ -17,6 +17,12 @@ const projects = [
     description: "Diseño de interfaz de usuario creado en Figma para un proyecto conceptual.",
     link: "#", // Cambia este enlace si tienes una URL para el mockup
     image: "media/figma.jpg"
+  },
+  {
+    title: "MininoGram",
+    description: "Red social de gatos y perros usando una API. Descubre, guarda y comparte tus animales favoritos.",
+    link: "https://minino-gram.netlify.app/",
+    image: "media/mininogram.jpg"
   }
 ];
 

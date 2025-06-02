@@ -23,6 +23,12 @@ const projects = [
     description: "Red social de gatos y perros usando una API. Descubre, guarda y comparte tus animales favoritos.",
     link: "https://minino-gram.netlify.app/",
     image: "media/mininogram.jpg"
+  },
+  {
+    title: "Escritorio Web Retro",
+    description: "Escritorio estilo retro con iconos y ventanas móviles, juegos y funcionalidades clásicas. Todo hecho solo con JS Vanilla, lo que lo hace eficiente y desafiante.",
+    link: "https://escritorioweb.netlify.app/",
+    image: "media/escritorioweb.jpg" // Asegúrate de añadir esta imagen a tu carpeta media
   }
 ];
 

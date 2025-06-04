@@ -24,7 +24,7 @@ const projects = [
       es: "Diseño de interfaz de usuario creado en Figma para un proyecto conceptual.",
       en: "User interface design created in Figma for a conceptual project."
     },
-    link: "#",
+    link: "https://www.figma.com/proto/dm6VGu332KedFuI4tc6rXk/Takeaseat?node-id=2-2&t=niA13vWvSePNR2CE-1",
     image: "media/figma.jpg"
   },
   {

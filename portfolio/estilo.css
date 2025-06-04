@@ -1062,21 +1062,13 @@ input.check-toggle-round-flat:checked + label:after {
 
 @media screen and (max-width: 480px) {
   .switch {
-    top: 8px;
-    right: 8px;
-    transform: scale(0.7);
-  }
-  input.check-toggle-round-flat + label {
-    width: 65px;
-    height: 24px;
-  }
-  input.check-toggle-round-flat + label:after {
-    width: 30px;
-  }
-  input.check-toggle-round-flat:checked + label:after {
-    margin-left: 28px;
-  }
-  .switch > span {
-    font-size: 10px;
+    position: fixed;
+    bottom: 18px;
+    right: 18px;
+    left: auto;
+    top: auto;
+    transform: none; /* Sin escala, igual que en escritorio */
+    display: inline-block;
+    z-index: 1000;
   }
 }

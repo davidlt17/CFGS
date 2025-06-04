@@ -75,9 +75,18 @@ function renderCards() {
       </div>
     `;
     card.addEventListener("click", () => {
-      previewIframe.src = project.link;
-      openFullButton.href = project.link;
-      previewContainer.classList.remove("hidden");
+      if (project.link.includes("figma.com")) {
+        // Abre el enlace de Figma directamente en una nueva pestaña
+        window.open(project.link, "_blank");
+        return; // No mostrar el preview
+      } else {
+        previewIframe.classList.remove("hidden");
+        previewIframe.src = project.link;
+        // Elimina imagen previa si existe
+        previewContainer.querySelector('.figma-preview')?.remove();
+        openFullButton.href = project.link;
+        previewContainer.classList.remove("hidden");
+      }
     });
     tarjetasContainer.appendChild(card);
   });
